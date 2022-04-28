@@ -24,7 +24,7 @@ function* decreaseSaga() {
   yield put(decrease()); // 특정 액션을 디스패치 합니다.
 }
 
-export function* counterSaga() {
+export function* watchCounter() {
   // takeEvery 는 들어오는 모든 액션에 대하여 특정 작업을 처리해줍니다.
   // yield takeEvery(INCREASE_ASYNC, increaseSaga);
   // 첫번째 파라미터: n초 * 1000

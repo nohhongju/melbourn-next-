@@ -1,5 +1,4 @@
-import { Footer, Modal, Pagination, Table } from '@/components'
-import Head from 'next/head'
+import { Modal, Pagination, Table } from '@/components'
 import styles from "@/styles/Layout.module.css";
 
 export function Layout({ children }){
@@ -8,7 +7,6 @@ export function Layout({ children }){
         <main className={styles.main}>{children}</main>
         <Table/>
         <Pagination/>
-        <Footer/>
         <Modal/>
         </div>
     );

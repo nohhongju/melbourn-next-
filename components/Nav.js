@@ -91,9 +91,9 @@ export function Nav(){
 
   const handleAuth = (value) => {
     switch(value){
-      case '회원가입': window.location.href='/user/join'
+      case '회원가입': window.location.href='/auth/register'
                     break;
-      case '로그인': window.location.href='/user/login'
+      case '로그인': window.location.href='/auth/login'
                     break;
       default: window.location.href='/'
                     break;
@@ -101,7 +101,7 @@ export function Nav(){
   }
   
   return (
-    <AppBar position="static" style={{marginBottom:"70px"}}>
+    <AppBar position="static" style={{marginBottom:"20px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
