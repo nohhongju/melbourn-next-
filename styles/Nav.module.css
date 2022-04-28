@@ -1,0 +1,55 @@
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(214, 207, 245);
+    font-size: 15px;
+    text-align: center;
+}
+.nav a {
+    text-decoration: none;
+}
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.li {
+    display: block;
+    color: rgb(218, 203, 234);
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: 3px;
+    float: left;
+}
+.li:hover {
+    background-color: rgb(235, 221, 245);
+}
+
+.table {
+    margin: auto;
+    font-size: 15px;
+    width: 900px;
+    border: 1px solid rgb(164, 161, 161);
+}
+.table thead th {
+    background-color: rgb(236, 234, 234);
+    color: rgb(8, 7, 7);
+    text-align: center;
+    font-weight: bold;
+    height: 20px;
+    border: 1px solid rgb(13, 6, 6);
+}
+
+.table td {
+    padding: 12px 15px;
+    border: 1px solid rgb(161, 158, 158);
+    text-align: center;
+}
+.table tbody tr {
+    border: 1px solid rgb(11, 10, 10);
+}
+.table tbody tr:last-of-type {
+    border: 1px solid rgb(10, 9, 9);
+}

@@ -1,0 +1,32 @@
+.container {
+    padding: 0 2rem;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.main {
+    width: 900px;
+    min-height: 600px;
+    padding: 0.2rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer {
+    width: 900px;
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
