@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
-import { login } from '@/modules/auth/user';
+import { loginRequest, logoutRequest } from '@/modules/auth/login';
 import { Login } from '@/components/auth/Login';
 
 const LoginPage = () => {
@@ -17,18 +17,13 @@ const onChange = e =>{
 const onSubmit = e =>{
     e.preventDefault()
     alert('로그인정보:'+JSON.stringify(user))
-    //window.location.href = "/"
+    dispatch(loginRequest(user))
 }
   return (
     <Login onChange={onChange} onSubmit={onSubmit}/>
   );
 };
 
-export default connect(
-  state => ({
-    loginUser: state.login
-  }),
-  {
-    login
-  }
-)(LoginPage);
+const mapStateToProps = state => ({isLoggined: state.login.isLoggined})
+const loginActions = {loginRequest, logoutRequest}
+export default connect(mapStateToProps, loginActions)(LoginPage)

@@ -13,12 +13,9 @@ const CounterPage = ({ number, increaseAsync, decreaseAsync }) => {
   );
 };
 
-export default connect(
-  state => ({
-    number: state.counter
-  }),
-  {
+const mapStateToProps = state => ({number: state.counter})
+const registerActions={
     increaseAsync,
     decreaseAsync
-  }
-)(CounterPage);
+}
+export default connect(mapStateToProps, registerActions)(CounterPage);
