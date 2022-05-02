@@ -28,7 +28,6 @@ export function* registerSaga() {
 }
 function* singup(action) {
     try {
-        console.log(" *** 여기가 핵심 ***"+ JSON.stringify(action))
         const response = yield call(registerAPI, action.payload)
         console.log(" 회원가입 서버다녀옴: " + JSON.stringify(response.data))
         yield put({type: REGISTER_SUCCESS, payload: response.data})
@@ -56,6 +55,8 @@ const register = handleActions({
     })
 }, initialState)
 
+export default register
+
 /** handleActions 를 사용하기 전 학습용 백업
 const auth = (state = initialState, action) => {
     switch (action.type) {
@@ -82,4 +83,3 @@ const auth = (state = initialState, action) => {
     }
 }
  */
-export default register

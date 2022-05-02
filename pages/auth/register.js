@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { registerRequest, unregisterRequest } from '@/modules/auth/register';
 import { Register } from '@/components/auth/Register';
+import { useRouter } from 'next/router';
 
 
 const RegisterPage = () => {
@@ -10,6 +11,7 @@ const RegisterPage = () => {
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
     })
     const dispatch = useDispatch()
+    const router = useRouter()
     const onChange = e =>{
         e.preventDefault()
         const{name, value} = e.target;
@@ -19,6 +21,7 @@ const RegisterPage = () => {
         e.preventDefault()
         alert('회원가입정보:'+JSON.stringify(user))
         dispatch(registerRequest(user))
+        router.push('/auth/login')
     }
   return (
     <Register onChange={onChange} onSubmit={onSubmit}/>
