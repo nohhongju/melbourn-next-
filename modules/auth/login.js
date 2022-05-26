@@ -4,7 +4,7 @@ import { HYDRATE } from "next-redux-wrapper"
 import axios from 'axios'
 
 
-const SERVER = 'http://127.0.0.1:5000'
+const SERVER = 'http://127.0.0.1:8080'
 const headers = {
     "Content-Type": "application/json",
     Authorization: "JWT fefege..."
@@ -31,21 +31,25 @@ export const logoutRequest = createAction(LOGOUT_REQUEST, data => data)
 export function* loginSaga() {
     yield takeLatest(LOGIN_REQUEST, signin);
     yield takeLatest(LOGIN_CANCELLED, loginCancel);
-    // yield takeLatest(LOGOUT_REQUEST, logout);
+    yield takeLatest(LOGOUT_REQUEST, logout);
 }
 function* signin(action) {
     try {
         const response = yield call(loginAPI, action.payload)
-        const result = response.data.console.log(" 로그인 서버다녀옴: " + JSON.stringify(result))
-        yield put({type: LOGIN_SUCCESS, payload: result})
-        yield put({type: SAVE_TOKEN, payload: result.token})
-        yield put(window.location.href="/")
+        const result = response.data
+        if(result.token != "FAILURE"){
+            console.log("로그인 성공: "+JSON.stringify(result))
+            yield put({type: LOGIN_SUCCESS, payload: result})
+            yield put({type: SAVE_TOKEN, payload: result.token})
+        }else{
+            console.log("로그인 실패: "+ JSON.stringify(result))
+        }
     } catch (error) {
         yield put({type: LOGIN_FAILURE, payload: error.message})
     }
 }
 const loginAPI = payload => axios.post(
-    `${SERVER}/user/login`,
+    `${SERVER}/users/login`,
     payload,
     {headers}
     )

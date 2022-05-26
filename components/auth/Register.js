@@ -46,10 +46,10 @@ export function Register({onChange, onSubmit}){
               <Grid item xs={12} sm={6} >
                 <TextField
                   autoComplete="given-name"
-                  name="userid"
+                  name="username"
                   required
                   fullWidth
-                  id="userid"
+                  id="username"
                   label="사용자ID"
                   autoFocus
                   onChange={onChange}
@@ -85,39 +85,6 @@ export function Register({onChange, onSubmit}){
                   label="Password"
                   type="password"
                   id="password"
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="phone"
-                  label="전화번호"
-                  type="text"
-                  id="phone"
-                  onChange={onChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="birth"
-                  label="생년월일"
-                  type="text"
-                  id="birth"
-                
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="address"
-                  label="주소"
-                  type="text"
-                  id="address"
                   onChange={onChange}
                 />
               </Grid>

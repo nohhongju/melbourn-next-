@@ -8,20 +8,26 @@ import { useRouter } from 'next/router';
 
 const RegisterPage = () => {
     const [user, setUser] =useState({
-        userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
+        username:'', password:'', email:'', name:''
     })
     const dispatch = useDispatch()
-    const router = useRouter()
+    const getToday = () => {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = ("0" + (1 + date.getMonth())).slice(-2);
+      var day = ("0" + date.getDate()).slice(-2);
+  
+      return year + "-" + month + "-" + day;
+  }
     const onChange = e =>{
         e.preventDefault()
         const{name, value} = e.target;
-        setUser({...user,[name]: value})
+        setUser({...user, regDate: getToday(), [name]: value})
     }
     const onSubmit = e =>{
         e.preventDefault()
         alert('회원가입정보:'+JSON.stringify(user))
         dispatch(registerRequest(user))
-        router.push('/auth/login')
     }
   return (
     <Register onChange={onChange} onSubmit={onSubmit}/>
